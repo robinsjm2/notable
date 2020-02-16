@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notable</title>
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="{% static "js/app.js" %}"></script>
+</head>
+<body ng-controller="NoteController">
+{% verbatim %}
+    <div>
+        <label>Title</label>
+
+        <input type="text" name="note-title" ng-model="note.title"/>
+
+        <label>Body</label>
+
+        <textarea name="note-body" ng-model="note.body"></textarea>
+
+        <input type="hidden" ng-model="note.id" />
+
+        <input type="button" value="Add" ng-click="addNote()" class="btn btn-primary"/>
+    </div>
+    <div id="notes-list">
+        <div ng-repeat="note in notes">
+            {{ note.title }} {{ note.body }}
+            <input type="button" value="Delete" ng-click="deleteNote(note)" class="btn btn-primary" />
+        </div>
+    </div>
+{% endverbatim %}
+</body>
+</html>
