@@ -69,6 +69,9 @@ app.controller('NoteController', ['$scope', 'NoteRepoService',
                   $scope.message = 'Note added!';
                   $scope.errorMessage = '';
                   $scope.getAllNotes();
+
+                  // reset add note form
+                  $scope.note = null;
               },
               function error(response){
                   $scope.errorMessage = 'Error adding note!';
