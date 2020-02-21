@@ -1,5 +1,5 @@
 
-var app = angular.module("app", []);
+var app = angular.module('app', []);
 
 /**
  * Register the Notable API's notes service.

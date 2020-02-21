@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <title>Notable</title>
     {% load static %}
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="{% static "js/app.js" %}"></script>
+    <script src='{% static "js/angular.min.js" %}'></script>
+    <link rel='stylesheet' href='{% static "css/angular-material.min.css"%}'>
+
+    <script src='{% static "js/angular-animate.min.js" %}'></script>
+    <script src='{% static "js/angular-aria.min.js" %}'></script>
+    <script src='{% static "js/angular-aria.messages.js" %}'></script>
+
+    <script src='{% static "js/angular-material.min.js"%}'></script>
+    <script src='{% static "js/app.js" %}'></script>
 </head>
 <body ng-controller="NoteController">
 {% verbatim %}
@@ -22,12 +29,26 @@
 
         <input type="button" value="Add" ng-click="addNote()" class="btn btn-primary"/>
     </div>
-    <div id="notes-list">
-        <div ng-repeat="note in notes">
-            {{ note.title }} {{ note.body }}
-            <input type="button" value="Delete" ng-click="deleteNote(note)" class="btn btn-primary" />
+
+    <hr />
+
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column">
+          <md-card ng-repeat="note in notes">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">{{ note.title }}</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+              {{ note.body }}
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-click="deleteNote(note)" class="btn btn-primary">Delete</md-button>
+            </md-card-actions>
+          </md-card>
         </div>
-    </div>
+  </md-content>
 {% endverbatim %}
 </body>
 </html>
