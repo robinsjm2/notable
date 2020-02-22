@@ -25,8 +25,15 @@ By default, everything will be stored in a SQLite database.
 
 ## App
 
+To run the app, navigate to the project directory and run the
+following command:
+
+`$ python manage.py runserver 8000`
+
 After starting the app, visit the following URL in your browser.
 http://localhost:8000/app/
+
+To stop the application, press `Ctrl + C`.
 
 The app is available as a Django templated view which contains
 an AngularJS driven interface.
